@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input:focus {
+  outline: none;
+}
+
+body {
+  background-color: #1e293b;
+  max-height: 100vh;
+  max-width: 100vw;
+  overflow: hidden;
+
+  .contacts::-webkit-scrollbar {
+    @apply w-[0.2rem];
+  }
+
+  .contacts::-webkit-scrollbar-thumb {
+    @apply bg-[#ffffff39] w-[0.1rem] rounded-2xl;
+  }
+
+  .chat-messages::-webkit-scrollbar {
+    @apply w-[0.2rem];
+  }
+
+  .chat-messages::-webkit-scrollbar-thumb {
+    @apply bg-[#ffffff39] w-[0.1rem] rounded-2xl;
+  }
+
+  .emoji .EmojiPickerReact {
+    @apply absolute top-[-480px] bg-[#080420] shadow-[0_5px_10px_#9a86f3] border-[#9a86f3];
+  }
+
+  .emoji .EmojiPickerReact .epr-body::-webkit-scrollbar {
+    @apply bg-[#080420] w-[5px];
+  }
+
+  .emoji .EmojiPickerReact .epr-body::-webkit-scrollbar-thumb {
+    @apply bg-[#9a86f3];
+  }
+
+  .emoji .EmojiPickerReact .epr-categories button {
+    @apply contrast-0;
+  }
+
+  .emoji .EmojiPickerReact .epr-search-container input {
+    @apply bg-transparent border-[#9a86f3];
+  }
+
+  .emoji .EmojiPickerReact .epr-emoji-category-label {
+    @apply bg-[#080420];
+  }
+}
