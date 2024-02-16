@@ -34,7 +34,11 @@ export const ChatContainer = ({
       };
 
       response().then((res) => {
-        setMessages(res.data);
+        const messagesWithDateObjects = res.data.map((message: any) => ({
+          ...message,
+          timestamp: new Date(message.timestamp),
+        }));
+        setMessages(messagesWithDateObjects);
       });
     }
   }, [currentChat]);
@@ -51,12 +55,15 @@ export const ChatContainer = ({
       to: currentChat._id,
       username: data.username,
       message: msg,
+      timestamp: new Date(),
     });
 
     const msgs = [...messages];
+
     msgs.push({
       fromSelf: true,
       message: msg,
+      timestamp: new Date(),
     });
     setMessages(msgs);
   };
@@ -67,6 +74,7 @@ export const ChatContainer = ({
         setArrivalMessage({
           fromSelf: false,
           message: data.message,
+          timestamp: new Date(),
         });
 
         toast(`New message from ${data.username}: ${data.message}`);
@@ -118,6 +126,15 @@ export const ChatContainer = ({
                   }`}
                 >
                   <p>{message.message}</p>
+                  <p className=" flex justify-end text-base font-bold   font-mono">
+                    {message.timestamp
+                      ? new Date(message.timestamp).toLocaleTimeString([], {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                          hour12: false,
+                        })
+                      : ""}
+                  </p>
                 </div>
               </div>
             );

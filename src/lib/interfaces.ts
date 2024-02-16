@@ -9,4 +9,5 @@ export interface User {
 export interface ProjectMessages {
   fromSelf: boolean;
   message: string;
+  timestamp?: Date;
 }
