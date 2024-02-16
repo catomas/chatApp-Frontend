@@ -123,10 +123,11 @@ export const ChatContainer = ({
             );
           })}
         </div>
-
-        <ChatInput handleSendMsg={handleSendMsg} />
+        <div>
+          <ChatInput handleSendMsg={handleSendMsg} />
+          <ToastContainer />
+        </div>
       </div>
-      <ToastContainer />
     </>
   );
 };
