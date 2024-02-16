@@ -102,7 +102,7 @@ export const ChatContainer = ({
           </div>
           <Logout socket={socket} currentUser={currentUser} />
         </div>
-        <div className=" chat-messages px-8 py-2 flex flex-col gap-4 overflow-auto">
+        <div className=" chat-messages px-8 py-2 flex flex-col  gap-4 overflow-auto">
           {messages.map((message) => {
             return (
               <div
